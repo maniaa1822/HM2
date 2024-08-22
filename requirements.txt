@@ -1,0 +1,13 @@
+accelerate
+datasets
+transformers
+seqeval
+nvitop
+torch
+nlpaug
+nltk
+spacy
+textattack
+scipy==1.12 #(import triu from sparse)
+#python3 -m spacy download en_core_web_sm
+
