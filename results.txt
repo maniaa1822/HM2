@@ -1,7 +1,12 @@
 #
-kaggle links
+kaggle links 
 https://www.kaggle.com/code/matteomanias/hm2-train-fever-syn-hyper-hypo/edit/run/191779369
 https://www.kaggle.com/code/matteomanias/train-fever-augmented-hypothesis-swap/edit
+
+language_model_name = "distilbert-base-uncased"
+learning_rate = 1e-5
+weight_decay = 0.001
+epochs = 2
 
 standard dataset
 {'test_loss': 1.2668533325195312,
