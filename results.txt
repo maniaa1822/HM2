@@ -1,0 +1,37 @@
+#
+kaggle links
+https://www.kaggle.com/code/matteomanias/hm2-train-fever-syn-hyper-hypo/edit/run/191779369
+https://www.kaggle.com/code/matteomanias/train-fever-augmented-hypothesis-swap/edit
+
+standard dataset
+{'test_loss': 1.2668533325195312,
+ 'test_accuracy': 0.34630520332313075,
+  'test_precision': 0.11992729384867491,
+   'test_f1': 0.1781576622487298,
+    'test_recall': 0.34630520332313075,
+     'test_runtime': 12.737,
+      'test_samples_per_second': 179.556,
+       'test_steps_per_second': 22.454}
+
+augmented dataset with syn, hyper, hypo augmentations
+
+{'test_loss': 1.2445905208587646,
+ 'test_accuracy': 0.33827893175074186,
+  'test_precision': 0.38450180544135004,
+   'test_f1': 0.1863310830459188,
+    'test_recall': 0.33827893175074186,
+     'test_runtime': 1.6998,
+      'test_samples_per_second': 198.254,
+       'test_steps_per_second': 25.296}
+
+augmented dataset with neutral and negative augmentations
+
+{'test_loss': 1.070457100868225,
+ 'test_model_preparation_time': 0.0025,
+  'test_accuracy': 0.4065281899109792,
+   'test_precision': 0.4435619632186845,
+    'test_f1': 0.3814139421631366,
+     'test_recall': 0.4065281899109792,
+      'test_runtime': 2.2534,
+       'test_samples_per_second': 149.553,
+        'test_steps_per_second': 19.082}
