@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     # enable tf32 support (for NVIDIA Ampere GPUs)
     use_tf32 = torch.backends.cuda.matmul.allow_tf32 and torch.backends.cudnn.allow_tf32
-    language_model_name = "distilbert-base-uncased"
+    language_model_name = "bert-base-uncased"
     model_path = f"model_trained_{res.data}"
     learning_rate = 1e-5
     weight_decay = 0.001
@@ -161,7 +161,6 @@ if __name__ == "__main__":
             batch_size=512,
             batched=True,
         )
-        fiver_adv_test = load_dataset("iperbole/adversarial_fever_nli")
         fiver_test = fiver_adv_test["test"].map(
             tokenize_function,
             batch_size=512,

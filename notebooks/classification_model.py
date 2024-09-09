@@ -20,18 +20,13 @@ from transformers import (
 
 
 ### Model Parameters
-# we will use with Distil-BERT
 language_model_name = "roberta-base"
 
 ### Training Argurments
-
-# this GPU should be enough for this task to handle 32 samples per batch
 batch_size = 16
-
 # optim
 learning_rate = 1e-4
 weight_decay = 0.001  # we could use e.g. 0.01 in case of very low and very high amount of data for regularization
-
 # training
 epochs = 1
 device = "cuda" if torch.cuda.is_available() else "cpu"

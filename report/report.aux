@@ -3,14 +3,28 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}FEVER Dataset}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Data split and distribution}{1}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Model Architecture}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data Augmentation}{1}{section.3}\protected@file@percent }
 \bibstyle{acl_natbib}
 \bibdata{your_bib_file}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Subsection Heading Here}{1}{subsection.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1}Subsubsection Heading Here}{1}{subsubsection.1.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{1}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{1}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results and Discussion}{1}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{1}{section.6}\protected@file@percent }
-\gdef \@abspage@last{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Word Substitution using the wsd indexes}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Premise and Hypothesis Pair Generation}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{2}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Fine-tuning on the word substitution augmented dataset results}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comparison of model performance on the adversarial test set between finetuning on the standard dataset and the augmented dataset. Only some metrics are improved by the augmentation, namely the precision and F1 score.}}{2}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{table:dataset_comparison word substitution}{{1}{2}{Comparison of model performance on the adversarial test set between finetuning on the standard dataset and the augmented dataset. Only some metrics are improved by the augmentation, namely the precision and F1 score}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Fine-tuning on the premise and hypothesis pair generation augmented dataset results}{2}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{2}{section.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Comparison of model performance on the adversarial test set between finetuning on the standard dataset and the augmented dataset. Accuracy and precision are improved significantly by the augmentation. F1 and Recall scores are also impoved.}}{3}{table.caption.2}\protected@file@percent }
+\newlabel{table:dataset_comparison pair generation}{{2}{3}{Comparison of model performance on the adversarial test set between finetuning on the standard dataset and the augmented dataset. Accuracy and precision are improved significantly by the augmentation. F1 and Recall scores are also impoved}{table.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Examples of word substitution augmentations, the substituted word is chosen among a set of candidates retrieved from the wsd indexes and chosen based on a similarity score threshold computed on the whole sentence.}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:alteration-examples}{{1}{4}{Examples of word substitution augmentations, the substituted word is chosen among a set of candidates retrieved from the wsd indexes and chosen based on a similarity score threshold computed on the whole sentence}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example of neutral pair generation from the existing sentences in the dataset, no further modification is needed at a word level.}}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:alteration-examples}{{2}{4}{Example of neutral pair generation from the existing sentences in the dataset, no further modification is needed at a word level}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Examples of negative pair generation, the hypothesis is negated by negating the verb in the sentence and the label is changed to contradiction.}}{4}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:alteration-examples}{{3}{4}{Examples of negative pair generation, the hypothesis is negated by negating the verb in the sentence and the label is changed to contradiction}{figure.caption.5}{}}
+\gdef \@abspage@last{4}

@@ -112,7 +112,7 @@ def get_model(model_name):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="1822363-main.py",
-        description="A program to train distilbert on fiver",
+        description="A program to train distilbert on fever",
         epilog="",
     )
 
@@ -135,34 +135,33 @@ if __name__ == "__main__":
             raise Exception("You are testing the model without having trained it first")
         language_model_name = model_path
 
-    fiver = load_dataset("tommasobonomo/sem_augmented_fever_nli")
+    fever = load_dataset("tommasobonomo/sem_augmented_fever_nli")
     model, tokenizer, collator, tokenize_function = get_model(language_model_name)
 
     if res.data == "original":
-        tokenized_fiver = fiver.map(
+        tokenized_fever = fever.map(
             tokenize_function,
             batch_size=512,
             batched=True,
         )
-        fiver_train = tokenized_fiver["train"].select(range(15000)).shuffle(seed=42)
-        fiver_valid = tokenized_fiver["validation"]
-        fiver_test = tokenized_fiver["test"]
+        fever_train = tokenized_fever["train"].select(range(15000)).shuffle(seed=42)
+        fever_valid = tokenized_fever["validation"]
+        fever_test = tokenized_fever["test"]
     elif res.data == "adversarial":
-        fiver_adv_train = load_dataset("matteo1822/fever_augmented_syn_hyper_hypo")['train'].shuffle(seed=42)
+        fever_adv_train = load_dataset("matteo1822/fever_augmented_syn_hyper_hypo")['train'].shuffle(seed=42)
         #print training on "matteo1822/fever_augmented_syn_hyper_hypo"
         print('training on "matteo1822/fever_augmented_syn_hyper_hypo')
-        fiver_train = fiver_adv_train.map(
+        fever_train = fever_adv_train.map(
             tokenize_function,
             batch_size=512,
             batched=True,
         )
-        fiver_valid = fiver["validation"].map(
+        fever_valid = fever["validation"].map(
             tokenize_function,
             batch_size=512,
             batched=True,
         )
-        fiver_adv_test = load_dataset("iperbole/adversarial_fever_nli")
-        fiver_test = fiver_adv_test["test"].map(
+        fever_test = fiver_adv_test["test"].map(
             tokenize_function,
             batch_size=512,
             batched=True,
@@ -183,8 +182,8 @@ if __name__ == "__main__":
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=fiver_train,
-        eval_dataset=fiver_valid,
+        train_dataset=fever_train,
+        eval_dataset=fever_valid,
         tokenizer=tokenizer,
         data_collator=collator,
         compute_metrics=compute_metrics,
@@ -192,14 +191,14 @@ if __name__ == "__main__":
 
     if res.action == "train":
         trainer.train()
-        print(trainer.evaluate(fiver_valid))
+        print(trainer.evaluate(fever_valid))
         trainer.save_model(model_path)
         #trainer.push_to_hub()
 
     elif res.action == "test":
         #trainer.push_to_hub
         trainer.save_model
-        metrics = trainer.predict(fiver_test).metrics
+        metrics = trainer.predict(fever_test).metrics
         print(metrics)
         with open(f"results_test_{res.data}.tsv", "w") as f:
             l1 = "\t".join(metrics.keys())
